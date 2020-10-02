@@ -2,6 +2,8 @@ const SteamAPI = require('steamapi');
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const steamprice = require('steam-price-api');
+const fs = require('fs')
+const token = '';
 var userId;
 const token = 'Njk5NjEwOTM1MjE5NzE2MTQ2.XpW5kQ.u3wJdiYrJPEuRTy-klL4OB41vds';
 const steam = new SteamAPI('F13534BB6212CE9737D46E6756339FC1');
@@ -60,7 +62,6 @@ bot.on('message',msg=>{
             }).catch(err => console.log(err));
             });
         break;
-
         case '!help':
                 msg.reply('\n!inv (YOUR_STEAM_ID_URL) - Gives List of Items in Steam ID\n !bans (YOUR_STEAM_ID_URL) - Gives VAC Bans and Information about last VAC Ban\n !level (YOUR_STEAM_ID_URL) - Tells level of your Steam Account'+'\n!stats (YOUR_STEAM_ID_URL) - Gives Stats for a particular user' );
             break;
@@ -85,6 +86,20 @@ bot.on('message',msg=>{
                     msg.reply(games);
                 });
             });
+        case 'insult':
+            let user = msg.mentions.users.first()
+            let insults = ""
+            let insult = ""
+            let $ = this
+            fs.readFile('./insults.txt', (err, data) => {
+                $.insults = data.split('\n')
+            })
+            insult = insults[Math.floor(Math.random() * insults.length)]
+            msg.channel.send(`Hey ${user.username}, ${insult}`)
+        break;
+
+            case 'help':
+                msg.reply('!inv (YOUR_STEAM_ID_URL) - Gives List of Items in Steam ID\n !bans (YOUR_STEAM_ID_URL) - Gives VAC Bans and Information about last VAC Ban\n !level (YOUR_STEAM_ID_URL) - Tells level of your Steam Account');
             break;
         
         case '!try' :
@@ -129,6 +144,3 @@ bot.on('message',msg=>{
             
     }
 })
-
-
-
