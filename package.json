@@ -11,6 +11,8 @@
   "dependencies": {
     "discord.js": "^12.1.1",
     "get-steam-inventory": "^2.0.0",
+    "postman-request": "^2.88.1-postman.22",
+    "steam-price-api": "^2.0.0",
     "steamapi": "^2.0.7"
   }
 }
