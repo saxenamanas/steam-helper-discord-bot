@@ -2,6 +2,7 @@ const SteamAPI = require('steamapi');
 const steam = new SteamAPI('');
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+const fs = require('fs')
 const token = '';
 var userId;
 
@@ -52,11 +53,20 @@ bot.on('message',msg=>{
             });
         break;
 
+        case 'insult':
+            let user = msg.mentions.users.first()
+            let insults = ""
+            let insult = ""
+            let $ = this
+            fs.readFile('./insults.txt', (err, data) => {
+                $.insults = data.split('\n')
+            })
+            insult = insults[Math.floor(Math.random() * insults.length)]
+            msg.channel.send(`Hey ${user.username}, ${insult}`)
+        break;
+
             case 'help':
                 msg.reply('!inv (YOUR_STEAM_ID_URL) - Gives List of Items in Steam ID\n !bans (YOUR_STEAM_ID_URL) - Gives VAC Bans and Information about last VAC Ban\n !level (YOUR_STEAM_ID_URL) - Tells level of your Steam Account');
             break;
     }
 })
-
-
-
