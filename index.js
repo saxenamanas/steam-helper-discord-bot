@@ -6,6 +6,7 @@ var userId;
 const token = 'Njk5NjEwOTM1MjE5NzE2MTQ2.XpW5kQ.u3wJdiYrJPEuRTy-klL4OB41vds';
 const steam = new SteamAPI('F13534BB6212CE9737D46E6756339FC1');
 const request = require('postman-request');
+const axios = require('axios')
 
 const steaminventory = require('get-steam-inventory');
 
@@ -15,6 +16,11 @@ bot.login(token);
 bot.on('ready',()=>{
     console.log('Bot is online');
 })
+
+const getCompliment=async()=>{
+    let {compliment} = await axios.get('https://complimentr.com/api');
+    return compliment;
+}
 
 bot.on('message',msg=>{
     let args = msg.content.split(" ");
@@ -30,6 +36,10 @@ bot.on('message',msg=>{
                 }
             });
         });
+        break;
+
+        case '!compliment':
+            msg.reply(getCompliment());
         break;
 
         case '!hello':
