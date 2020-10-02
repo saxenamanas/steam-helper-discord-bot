@@ -84,6 +84,7 @@ bot.on('message',msg=>{
                     msg.reply('\nTotal kills : '+res.stats.total_kills+'\nTotal Deaths : '+res.stats.total_deaths+'\nTotal Time Played : '+res.stats.total_time_played+'\nTotal Bombs Planted : '+res.stats.total_planted_bombs+'\nTotal MVP : '+res.stats.total_mvps+'\nTotal Knife Kills : '+res.stats.total_kills_knife);
                 })
             });
+<<<<<<< HEAD
         case 'insult':
             let user = msg.mentions.users.first()
             let insults = ""
@@ -98,6 +99,8 @@ bot.on('message',msg=>{
 
             case 'help':
                 msg.reply('!inv (YOUR_STEAM_ID_URL) - Gives List of Items in Steam ID\n !bans (YOUR_STEAM_ID_URL) - Gives VAC Bans and Information about last VAC Ban\n !level (YOUR_STEAM_ID_URL) - Tells level of your Steam Account');
+=======
+>>>>>>> 356b878c549366058a487c22ba7be98f4859f027
             break;
 
         case '!games':
@@ -111,6 +114,23 @@ bot.on('message',msg=>{
                     msg.reply(games);
                 });
             });
+<<<<<<< HEAD
+=======
+        case 'insult':
+            let user = msg.mentions.users.first()
+            let insults = ""
+            let insult = ""
+            let $ = this
+            fs.readFile('./insults.txt', (err, data) => {
+                $.insults = data.split('\n')
+            })
+            insult = insults[Math.floor(Math.random() * insults.length)]
+            msg.channel.send(`Hey ${user.username}, ${insult}`)
+        break;
+
+            case 'help':
+                msg.reply('!inv (YOUR_STEAM_ID_URL) - Gives List of Items in Steam ID\n !bans (YOUR_STEAM_ID_URL) - Gives VAC Bans and Information about last VAC Ban\n !level (YOUR_STEAM_ID_URL) - Tells level of your Steam Account');
+>>>>>>> 356b878c549366058a487c22ba7be98f4859f027
             break;
         
         case '!try' :
