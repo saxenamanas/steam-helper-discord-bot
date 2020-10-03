@@ -3,10 +3,9 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const steamprice = require('steam-price-api');
 const fs = require('fs')
-const token = '';
 var userId;
-const token = 'Njk5NjEwOTM1MjE5NzE2MTQ2.XpW5kQ.u3wJdiYrJPEuRTy-klL4OB41vds';
-const steam = new SteamAPI('F13534BB6212CE9737D46E6756339FC1');
+const token = 'Njk5NjEwOTM1MjE5NzE2MTQ2.XpW5dQ.kuSdSCqjX7xYlu-Fso8g20c9xTk';
+const steam = new SteamAPI('1B3B15640528B8E2C8D411A4B3FE2345');
 const request = require('postman-request');
 const axios = require('axios')
 
@@ -84,23 +83,9 @@ bot.on('message',msg=>{
                     msg.reply('\nTotal kills : '+res.stats.total_kills+'\nTotal Deaths : '+res.stats.total_deaths+'\nTotal Time Played : '+res.stats.total_time_played+'\nTotal Bombs Planted : '+res.stats.total_planted_bombs+'\nTotal MVP : '+res.stats.total_mvps+'\nTotal Knife Kills : '+res.stats.total_kills_knife);
                 })
             });
-<<<<<<< HEAD
-        case 'insult':
-            let user = msg.mentions.users.first()
-            let insults = ""
-            let insult = ""
-            let $ = this
-            fs.readFile('./insults.txt', (err, data) => {
-                $.insults = data.split('\n')
-            })
-            insult = insults[Math.floor(Math.random() * insults.length)]
-            msg.channel.send(`Hey ${user.username}, ${insult}`)
-        break;
 
             case 'help':
                 msg.reply('!inv (YOUR_STEAM_ID_URL) - Gives List of Items in Steam ID\n !bans (YOUR_STEAM_ID_URL) - Gives VAC Bans and Information about last VAC Ban\n !level (YOUR_STEAM_ID_URL) - Tells level of your Steam Account');
-=======
->>>>>>> 356b878c549366058a487c22ba7be98f4859f027
             break;
 
         case '!games':
@@ -114,23 +99,16 @@ bot.on('message',msg=>{
                     msg.reply(games);
                 });
             });
-<<<<<<< HEAD
-=======
         case 'insult':
             let user = msg.mentions.users.first()
-            let insults = ""
-            let insult = ""
             let $ = this
-            fs.readFile('./insults.txt', (err, data) => {
-                $.insults = data.split('\n')
-            })
+            let insult = fs.readFile('./insults.txt','utf-8')
             insult = insults[Math.floor(Math.random() * insults.length)]
             msg.channel.send(`Hey ${user.username}, ${insult}`)
         break;
 
             case 'help':
                 msg.reply('!inv (YOUR_STEAM_ID_URL) - Gives List of Items in Steam ID\n !bans (YOUR_STEAM_ID_URL) - Gives VAC Bans and Information about last VAC Ban\n !level (YOUR_STEAM_ID_URL) - Tells level of your Steam Account');
->>>>>>> 356b878c549366058a487c22ba7be98f4859f027
             break;
         
         case '!try' :
