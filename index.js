@@ -99,11 +99,12 @@ bot.on('message',msg=>{
                     msg.reply(games);
                 });
             });
-        case 'insult':
+        case '!insult':
             let user = msg.mentions.users.first()
             let $ = this
-            let insult = fs.readFile('./insults.txt','utf-8')
-            insult = insults[Math.floor(Math.random() * insults.length)]
+            let insults = fs.readFileSync('./insults.txt','utf-8');
+            insults = insults.split('\n');
+            let insult = insults[Math.floor(Math.random() * insults.length)]
             msg.channel.send(`Hey ${user.username}, ${insult}`)
         break;
 
