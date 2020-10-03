@@ -4,7 +4,7 @@ const bot = new Discord.Client();
 const steamprice = require('steam-price-api');
 const fs = require('fs')
 var userId;
-const token = 'Njk5NjEwOTM1MjE5NzE2MTQ2.XpW5dQ.kuSdSCqjX7xYlu-Fso8g20c9xTk';
+const token = 'Njk5NjEwOTM1MjE5NzE2MTQ2.XpW5dQ.n-7RsC4FNquNiwLCJFVz0awZZpA';
 const steam = new SteamAPI('1B3B15640528B8E2C8D411A4B3FE2345');
 const request = require('postman-request');
 const axios = require('axios')
