@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"nodemon index",
     "start": "node index"
   },
   "author": "",
@@ -16,5 +17,8 @@
     "postman-request": "^2.88.1-postman.22",
     "steam-price-api": "^2.0.0",
     "steamapi": "^2.0.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
